@@ -1723,7 +1723,7 @@ MonoBehaviour:
   motherDeath: 0
   harambeDeath: 0
   sonDeath: 0
-  timeRemainingUI: {fileID: 0}
+  timeRemainingUI: {fileID: 919415502}
   bulletSound: {fileID: 8300000, guid: 22e63892588310e46ade4717d7fbd97d, type: 3}
 --- !u!82 &1615359464
 AudioSource:

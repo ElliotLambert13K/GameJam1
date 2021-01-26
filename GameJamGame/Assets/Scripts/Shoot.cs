@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
@@ -95,7 +96,7 @@ public class Shoot : MonoBehaviour
     void registerKills()
     {
         timeLeft -= Time.deltaTime;
-        //timeRemainingUI.gameObject.GetComponent<Text>().text = ("Time Left : " + (int)timeLeft);
+        timeRemainingUI.gameObject.GetComponent<Text>().text = ("TIME REMAINING : " + (int)timeLeft);
         if (timeLeft < 0.1f)
         {
             if (harambeDeath == true && motherDeath == true && sonDeath == true)
