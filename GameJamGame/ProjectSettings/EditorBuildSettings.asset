@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: fababf87648523f49a04133b9f636d82
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Passive.unity
+    guid: 8eda615cb6bb0a14bb62b0abe0571f27
+  - enabled: 1
+    path: Assets/Scenes/AllDeath.unity
+    guid: df77cbf6565d1e543b81e9ddf4d70da4
+  - enabled: 1
+    path: Assets/Scenes/HarambeDeath.unity
+    guid: 6a6db4afc372f1344bb10e49c14f9dd9
+  - enabled: 1
+    path: Assets/Scenes/MandHDeath.unity
+    guid: a1e195ff1e7008146b86f699bd8bafb9
+  - enabled: 1
+    path: Assets/Scenes/MandSDeath.unity
+    guid: ddc2ac10aeaecfd4695dc212603ca3f0
+  - enabled: 1
+    path: Assets/Scenes/MotherDeath.unity
+    guid: ebb1462d636f57d4eb4628a9027104f1
+  - enabled: 1
+    path: Assets/Scenes/SandHDeath.unity
+    guid: ac48796f3363cbe4eae8f3e80d5125fc
+  - enabled: 1
+    path: Assets/Scenes/SonDeath.unity
+    guid: 61e2a75cb037d744eb3cf3d5631124b8
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 995235ac97310644a9b1acc76deed430
   m_configObjects: {}

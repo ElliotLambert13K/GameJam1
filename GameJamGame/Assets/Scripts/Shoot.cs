@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shoot : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class Shoot : MonoBehaviour
     public LayerMask whatToHit;
     private float timeToFireGun = 0f;
     public Transform firePoint;
+    public bool motherDeath = false;
+    public bool harambeDeath = false;
+    public bool sonDeath = false;
+    private float timeLeft = 10f;
+    public GameObject timeRemainingUI;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (firePoint == null)
         {
             Debug.LogError("No Fire Point");
+            timeRemainingUI = GameObject.Find("Timer");
         }
     }
 
@@ -33,6 +40,8 @@ public class Shoot : MonoBehaviour
             timeToFireGun = Time.time + 1 / fireRate;
             shootGun2();
         }
+        registerKills();
+
 
 //        if (Input.GetButton("Fire2"))
 //        {
@@ -63,6 +72,62 @@ public class Shoot : MonoBehaviour
         {
             Debug.DrawLine(firePoint.position, hit2.point, Color.red);
             Debug.Log("We hit " + hit2.collider.name + " and did " + damage + " damage");
+            if (hit2.collider.tag == "Mother")
+            {
+                Debug.Log("Mother shot and killed");
+                motherDeath = true;
+            }
+            else if (hit2.collider.tag == "Child")
+            {
+                Debug.Log("Son shot and killed");
+                sonDeath = true;
+            }
+            else if (hit2.collider.tag == "Harambe")
+            {
+                Debug.Log("Harambe shot and killed");
+                harambeDeath = true;
+            }
+        }
+    }
+    void registerKills()
+    {
+        timeLeft -= Time.deltaTime;
+        //timeRemainingUI.gameObject.GetComponent<Text>().text = ("Time Left : " + (int)timeLeft);
+        if (timeLeft < 0.1f)
+        {
+            if (harambeDeath == true && motherDeath == true && sonDeath == true)
+            {
+                SceneManager.LoadScene("AllDeath");
+            }
+            else if (harambeDeath == true && motherDeath == true && sonDeath == false)
+            {
+                SceneManager.LoadScene("MandHDeath");
+            }
+            else if (harambeDeath == true && motherDeath == false && sonDeath == true)
+            {
+                SceneManager.LoadScene("SandHDeath");
+            }
+            else if (harambeDeath == false && motherDeath == true && sonDeath == true)
+            {
+                SceneManager.LoadScene("MandSDeath");
+            }
+            else if (harambeDeath == true && motherDeath == false && sonDeath == false)
+            {
+                SceneManager.LoadScene("HarambeDeath");
+            }
+            else if (harambeDeath == false && motherDeath == true && sonDeath == false)
+            {
+                SceneManager.LoadScene("MotherDeath");
+            }
+            else if (harambeDeath == false && motherDeath == false && sonDeath == true)
+            {
+                SceneManager.LoadScene("SonDeath");
+            }
+            else
+            {
+                SceneManager.LoadScene("Passive");
+            }
+
         }
     }
 }
