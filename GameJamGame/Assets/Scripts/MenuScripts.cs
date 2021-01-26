@@ -32,4 +32,8 @@ public class MenuScripts : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void toCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }

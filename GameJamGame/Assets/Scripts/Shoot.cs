@@ -15,6 +15,7 @@ public class Shoot : MonoBehaviour
     public bool sonDeath = false;
     private float timeLeft = 10f;
     public GameObject timeRemainingUI;
+    public AudioClip bulletSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,8 @@ public class Shoot : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 shootGun2();
+                var audio = GetComponent<AudioSource>();
+                audio.PlayOneShot(bulletSound);
             }
         }
         else if (Input.GetButton("Fire1") && Time.time > timeToFireGun)
